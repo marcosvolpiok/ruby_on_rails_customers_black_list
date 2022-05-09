@@ -1,6 +1,15 @@
 h1 Clients
 
+a href="/clients/new" Add new
+br
+a href="/clients/search" Search
+
+
 - @clients.each do |client|
-  <h2>
-    = client.alias
-  </h2>
+  p
+    strong
+      = client.alias
+    p = client.phone
+    p = client.city
+  hr
+  

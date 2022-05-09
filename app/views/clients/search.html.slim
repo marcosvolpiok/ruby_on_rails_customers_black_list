@@ -1,0 +1,8 @@
+h1 Search
+= form_tag(clients_path, method: :get) do
+  = text_field_tag :q, nil, placeholder: "Phone"
+
+  br
+  = submit_tag "Search", class: "btn btn-primary"
+  br
+  = link_to "Cancel", href="#", data: {dismiss: 'modal'}, class: "btn btn-default"  

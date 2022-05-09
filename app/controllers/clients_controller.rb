@@ -2,7 +2,15 @@ class ClientsController < ApplicationController
     require 'securerandom'
 
     def index
-        @clients = Client.all
+        if params[:q].nil?
+            puts "is nil"
+            @clients = Client.all
+        else
+            puts "NOT nil"
+            @clients = Client.where("phone LIKE ?", "%#{params[:q]}%")
+
+            puts @clients
+        end
     end
 
     def new
@@ -21,8 +29,12 @@ class ClientsController < ApplicationController
         redirect_to '/clients'
     end    
 
+    def search
+        @client = Client.new
+    end
+
     private
         def client_params
-            params.require(:client).permit(:alias, :phone, :city)
+            params.require(:client).permit(:alias, :phone, :city, :q)
         end    
 end
