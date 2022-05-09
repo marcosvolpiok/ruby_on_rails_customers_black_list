@@ -1,0 +1,9 @@
+= form_with(model: @client, local: true) do |form|
+  = form.text_field :alias, class: "form-control-static", placeholder: "Alias"
+  br 
+  = form.text_field :phone, class: "form-control-static", placeholder: "Phone"
+  br 
+  = form.text_field :city, class: "form-control-static", placeholder: "City"
+  .actions
+    = form.submit "Save", class: "btn btn-primary"
+    = link_to "Cancel", href="#", data: {dismiss: 'modal'}, class: "btn btn-default"
