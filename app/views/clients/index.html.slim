@@ -1,15 +1,17 @@
-h1 Clients
-
-a href="/clients/new" Add new
-br
-a href="/clients/search" Search
+h2 class="h2" Lista negra
 
 
-- @clients.each do |client|
-  p
-    strong
-      = client.alias
-    p = client.phone
-    p = client.city
-  hr
-  
+div class="table-responsive"
+  table class="table table-striped table-sm"
+    thead
+      tr
+        th Alias
+        th Teléfono
+        th Ciudad
+    
+    tbody
+      - @clients.each do |client|
+        tr
+          td  = client.alias
+          td = client.phone
+          td = client.city
